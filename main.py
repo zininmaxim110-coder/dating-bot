@@ -4,7 +4,8 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
-
+from keep_alive import keep_alive
+keep_alive()
 from config import BOT_TOKEN, ADMIN_ID
 import database
 from geo_utils import normalize_city, get_city_from_coords, format_distance
@@ -21,7 +22,22 @@ from keyboards import (
     get_template_keyboard
 )
 
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Бот работает! ✅"
+
+def run_server():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run_server)
+    t.daemon = True
+    t.start()
 logging.basicConfig(level=logging.INFO)
+keep_alive()
+
 logger = logging.getLogger(__name__)
 
 user_photos = {}
