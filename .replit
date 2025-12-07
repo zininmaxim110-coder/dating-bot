@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 modules = ["python-3.10"]
 [agent]
 expertMode = true
@@ -28,3 +29,6 @@ args = "python main.py"
 
 [workflows.workflow.metadata]
 outputType = "console"
+=======
+run = "python bot.py"
+>>>>>>> 58927f2c77bd51d1071f8e9035bef6cea984ce31
