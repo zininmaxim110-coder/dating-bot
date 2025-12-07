@@ -1,0 +1,14 @@
+[Unit]
+Description=Dating Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ваш_пользователь
+WorkingDirectory=/путь/к/боту
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

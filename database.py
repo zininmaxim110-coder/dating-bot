@@ -1,19 +1,38 @@
 from sqlalchemy import create_engine, Column, Integer, String, Text, Boolean, DateTime, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 from datetime import datetime, timedelta
 import json
 import logging
 import math
 
 from geo_utils import calculate_distance
+from config import DATABASE_URL  # Импортируем URL из конфига
 
 logger = logging.getLogger(__name__)
 
-engine = create_engine('sqlite:///dating.db', echo=False)
+# Настройка движка в зависимости от типа БД
+if DATABASE_URL.startswith("sqlite"):
+    # SQLite - для локальной разработки
+    engine = create_engine(
+        DATABASE_URL,
+        echo=False,
+        connect_args={"check_same_thread": False},
+        poolclass=StaticPool
+    )
+else:
+    # PostgreSQL - для Railway
+    engine = create_engine(
+        DATABASE_URL,
+        echo=False,
+        pool_size=5,
+        max_overflow=10,
+        pool_pre_ping=True  # Проверяет соединение перед использованием
+    )
+
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
-
 class User(Base):
     __tablename__ = 'users'
     
