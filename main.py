@@ -22,19 +22,6 @@ from keyboards import (
     get_template_keyboard
 )
 
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "Бот работает! ✅"
-
-def run_server():
-    app.run(host='0.0.0.0', port=8080)
-
-def keep_alive():
-    t = Thread(target=run_server)
-    t.daemon = True
-    t.start()
 logging.basicConfig(level=logging.INFO)
 keep_alive()
 
