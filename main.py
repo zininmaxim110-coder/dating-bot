@@ -21,7 +21,6 @@ from keyboards import (
 )
 
 logging.basicConfig(level=logging.INFO)
-keep_alive()
 
 logger = logging.getLogger(__name__)
 
