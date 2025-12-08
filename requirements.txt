@@ -2,13 +2,4 @@ aiogram==2.25.1
 python-dotenv==1.0.0
 sqlalchemy==1.4.47
 geopy==2.4.1
-psycopg2-binary==2.9.9
-<<<<<<< HEAD
-aiohttp>=3.8.0,<3.9.0
-=======
 aiohttp==3.9.1
-python-telegram-bot==20.7
-python-dotenv==1.0.0
-flask==3.0.0
-flask
->>>>>>> 58927f2c77bd51d1071f8e9035bef6cea984ce31

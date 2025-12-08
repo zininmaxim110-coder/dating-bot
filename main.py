@@ -4,8 +4,6 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
-from keep_alive import keep_alive
-keep_alive()
 from config import BOT_TOKEN, ADMIN_ID
 import database
 from geo_utils import normalize_city, get_city_from_coords, format_distance
