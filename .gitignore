@@ -29,3 +29,11 @@ uploads/
 # Бэкапы
 *.bak
 *_backup*
+venv/
+__pycache__/
+*.db
+.env
+*.pyc
+uploads/
+.vscode/
+*.tar.gz
